@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lovincyrus/helppopotamus/issues"
   },
-  "homepage": "https://github.com/lovincyrus/helppopotamus#readme"
+  "homepage": "https://github.com/lovincyrus/helppopotamus#readme",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
 }
