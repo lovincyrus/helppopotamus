@@ -33,11 +33,7 @@
       };
       firebase.initializeApp(config);
     </script>
-
-
     <h1>helppopotamus</h1>
-
-
   </head>
   <body>
 
@@ -51,8 +47,10 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    
+
     <script>
+
+    var context = {};
       var socket = io();
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
@@ -63,26 +61,5 @@
         $('#messages').append($('<li>').text(msg));
       });
     </script>
-
-    <ul>
-    <li ng-repeat="message in messages">{{ message.user }}: {{ message.text }}</li>
-    </ul>
-
-    <ul>
-    <li ng-repeat="message in messages">
-    {{ message.user }}: {{ message.text }}
-      <button ng-click="messages.$remove(message)">Close</button>
-    </li>
-    </ul>
-
-    <ul>
-    <li ng-repeat="message in messages">
-    Message data located at node /messages/{{ message.$id }}
-    </li>
-    </ul>
-
   </body>
-
-
-
 </html>

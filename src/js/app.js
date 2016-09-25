@@ -7,7 +7,7 @@ var app = express()
 var app = angular.module("sampleApp", ["firebase"]);
 
 // inject $firebaseArray into our controller
-app.controller("ProfileCtrl", ["$scope", $firebaseArray",
+app.controller("ProfileCtrl", ["$scope", "$firebaseArray",
   function($scope, $firebaseArray) {
     var messagesRef = new Firebase("https://helppopotamus.firebaseio.com/messages");
 
