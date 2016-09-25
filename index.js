@@ -2,13 +2,13 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-// app.get('/', function(req, res){
-//   res.send('<h1>Hello world</h1>');
-// });
+
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
 });
+
+
 
 
 // show user connects / disconnects
@@ -20,15 +20,12 @@ io.on('connection', function(socket){
 });
 
 
-// // show message in terminal
-// io.on('connection', function(socket){
-//   socket.on('chat message', function(msg){
-//     console.log('message: ' + msg);
-//   });
-// });
 
 
 io.emit('some event', { for: 'everyone' });
+
+
+
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
@@ -37,6 +34,11 @@ io.on('connection', function(socket){
   });
 });
 
+
+
+
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
+
+
