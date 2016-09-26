@@ -34,7 +34,7 @@ var context={};
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
-    console.log('message: ' + msg);
+    console.log('message: ' + msg + jsonContent.output.text);
     conversation.message({
       workspace_id: 'e14c46ac-234c-464b-8e1f-550124fe1f67',
       input: {'text': msg},
@@ -47,6 +47,14 @@ io.on('connection', function(socket){
     });
   });
 });
+
+
+var fs = require("fs");
+var content = fs.readFileSync("response.json");
+var jsonContent = JSON.parse(content);
+console.log(jsonContent.output.text);
+
+
 
 http.listen(3000, function(){
   console.log('listening on *:3000');

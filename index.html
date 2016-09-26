@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="helppopotamus">
   <head>
     <title>helppopotamus</title>
     <style>
@@ -35,7 +35,11 @@
     </script>
     <h1>helppopotamus</h1>
   </head>
-  <body>
+
+  <body ng-controller="helppopotamusCtrl">
+    <div ng-repeat="x in helppopotamus">
+      <h1>{{x.output}}</h1>
+    </div>
 
     <!-- ask question -->
     <ul id="messages"></ul>
@@ -60,6 +64,7 @@
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
+      
     </script>
   </body>
 </html>

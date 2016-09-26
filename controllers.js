@@ -1,13 +1,12 @@
 var helppopotamus = angular.module('helppopotamus', []);
 
 helppopotamus.controller('helppopotamusCtrl', function helppopotamusCtrl($scope, $http) {
-  if (navigator.userMessage) {
-    navigator.userMessage.getCurrentPosition(function(position) {
+  if (message.userMessage) {
+    message.userMessage.getCurrentPosition(function(position) {
       $scope.$apply(function(){
         $scope.position = position;
         console.log(position.coords.latitude)
-        console.log(position.coords.longitude)
-
+        
         var _url = '/conversation/api/v1/workspaces/e14c46ac-234c-464b-8e1f-550124fe1f67/message?version=2016-07-11'
 
         $http({
